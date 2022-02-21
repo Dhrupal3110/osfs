@@ -23,6 +23,7 @@ router.post(
     }
     //Check whether the user with this  exisist alredy
     try {
+      let success=false;
       let user = await orgUser.findOne({ email: req.body.email });
       if (user) {
         return res
@@ -45,8 +46,8 @@ router.post(
 
       const authToken = jwt.sign(data, JWT_SECRET);
       //  console.log(authToken);
-
-      res.json({ authToken });
+       success=true;
+      res.json({success, authToken });
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Sorry some error occured");
@@ -72,6 +73,8 @@ router.post(
     }
     //Check whether the user with this  exisist alredy
     try {
+      let success=false;
+
       let user = await facultyUsers.findOne({ email: req.body.email });
       if (user) {
         return res
@@ -96,8 +99,8 @@ router.post(
 
       const authToken = jwt.sign(data, JWT_SECRET);
       //  console.log(authToken);
-
-      res.json({ authToken });
+      success=true;
+      res.json({ success,authToken });
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Sorry some error occured");
@@ -125,6 +128,8 @@ router.post(
     }
     //Check whether the user with this  exisist alredy
     try {
+      let success=false;
+
       let user = await studentUsers.findOne({ email: req.body.email });
       if (user) {
         return res
@@ -149,7 +154,9 @@ router.post(
       };
 
       const authToken = jwt.sign(data, JWT_SECRET);
-     res.json({ authToken });
+      success=true;
+
+     res.json({ success,authToken });
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Sorry some error occured");

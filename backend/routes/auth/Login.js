@@ -15,7 +15,7 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
       }
   
-  
+       let success=false;
       const { email, password } = req.body;
       try {
         let user = await orgUser.findOne({ email });
@@ -37,7 +37,8 @@ router.post(
         };
         const authToken = jwt.sign(data, JWT_SECRET);
         //  console.log(authToken);
-        res.json({authToken});
+        success=true;
+        res.json({success,authToken});
       } catch (error) {
         console.log(error.message);
         res.status(500).send("Internal server error occurd");
@@ -55,7 +56,9 @@ const facultyUsers = require("../../models/users/F_user");
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
-  
+      
+      let success=false;
+
   
       const { email, password } = req.body;
       try {
@@ -78,7 +81,8 @@ const facultyUsers = require("../../models/users/F_user");
         };
         const authToken = jwt.sign(data, JWT_SECRET);
         //  console.log(authToken);
-        res.json({authToken});
+        success=true;
+        res.json({success,authToken});
       } catch (error) {
         console.log(error.message);
         res.status(500).send("Internal server error occurd");
@@ -96,8 +100,8 @@ const studentUsers = require("../../models/users/S_user");
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
-  
-  
+       
+  let success=false;
       const { email, password } = req.body;
       try {
         let user = await studentUsers.findOne({ email });
@@ -119,7 +123,8 @@ const studentUsers = require("../../models/users/S_user");
         };
         const authToken = jwt.sign(data, JWT_SECRET);
         //  console.log(authToken);
-        res.json({authToken});
+        success=true;
+        res.json({success,authToken});
       } catch (error) {
         console.log(error.message);
         res.status(500).send("Internal server error occurd");
