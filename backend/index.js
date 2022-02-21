@@ -12,6 +12,8 @@ app.use(cors())
 
 //authentication about data
 app.use(express.json())
+
+//define the path that was required
 const rejestration=require('./routes/auth/rejestration');
 const login=require('./routes/auth/Login')
 
