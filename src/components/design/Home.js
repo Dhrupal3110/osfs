@@ -1,5 +1,6 @@
 import "../../css/homepage.css";
 import React from "react";
+import SignUp from "../authcomponent/SignUp"
 import { Link } from "react-router-dom";
 const Home = () => {
   return (
@@ -10,10 +11,8 @@ const Home = () => {
       <h1>Welcome....</h1>
       <div className="container">
 
-        <Link to="/signup" className="btn btn-primary btn1 my-2">
-          Register
-        </Link>
-        <h6 className="mx-2">Alredy Register? <Link to="/login">Go to login</Link></h6>
+        <SignUp/>
+        <h6 className="my-4 login">Alredy Register? <Link className="link" to="/login">Go to login</Link></h6>
       </div>
     </div>
   );

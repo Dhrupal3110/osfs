@@ -15,12 +15,13 @@ app.use(express.json())
 
 //define the path that was required
 const rejestration=require('./routes/auth/rejestration');
-const login=require('./routes/auth/Login')
+const login=require('./routes/auth/Login');
+const getdata=require('./routes/auth/getData')
 
 //Availebal Routes
 app.use('/api/auth',rejestration);
 app.use('/api/auth',login);
-
+app.use('/api/auth',getdata)
 
 //home
 app.get('/',(req,res)=>{

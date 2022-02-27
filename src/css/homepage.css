@@ -2,7 +2,12 @@ h1{
     color: red;
 }
 body{
-    background-color: rgb(137, 169, 218);
+    /* background: rgb(135, 169, 219) url('../images/splashLogo.png') no-repeat center; */
+    background-size: 100vh;
+    background-position:top center;
+    opacity: 0.8;
+
+    
 }
 .container{
       margin: auto;
@@ -10,10 +15,12 @@ body{
       padding: 20px;
       align-items: center;
 }
-.image{
-    
-  background-color: pink;
-}
+
 .btn1{
     display: inline-block;
+}
+.login .link{
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1;
 }
